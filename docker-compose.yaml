@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  getir-case:
+    image: getir-case
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+    environment:
+      - SPRING_DATA_MONGODB_DATABASE=getirDb
+      - SPRING_DATA_MONGODB_HOST=mongo
+      - SPRING_DATA_MONGODB_PORT=27017
+
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    restart: always
+
+volumes:
+  getir-db:
