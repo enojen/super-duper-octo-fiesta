@@ -78,6 +78,5 @@ public class DatabaseInitChangeLog {
                 .quantity(39L)
                 .build();
         bookRepository.save(notre);
-        //test
     }
 }
